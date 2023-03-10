@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/screen/widget/bottom_navigation_bar/floating_navbar.dart';
 import 'package:travel_app/screen/widget/bottom_navigation_bar/floating_navbar_item.dart';
 import 'package:travel_app/screen/widget/category_screen.dart';
+import 'package:travel_app/screen/widget/travel_group.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -21,10 +22,31 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: _appBar,
-      body: _buildBody,
-      bottomNavigationBar: FloatingNavbar(
+        backgroundColor: Colors.grey[100],
+        appBar: _appBar,
+        body: _buildBody,
+        bottomNavigationBar: _bottomNavigationBar);
+  }
+
+  Widget get _buildBody {
+    return Container(
+      color: Colors.grey[100],
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      child: SingleChildScrollView(
+        child: Column(
+          children: const [
+            CategoryWidget(),
+             SizedBox(
+              height: 15,
+            ),
+            TravelGroup()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget get _bottomNavigationBar => FloatingNavbar(
         backgroundColor: Colors.white,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.blue,
@@ -37,22 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
           FloatingNavbarItem(icon: Icons.save_outlined, title: 'Saved'),
           FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
         ],
-      ),
-    );
-  }
-
-  Widget get _buildBody {
-    return Container(color: Colors.grey[100],
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      child: Column(
-        children: const [CategoryWidget()],
-      ),
-    );
-  }
+      );
 
   final AppBar _appBar = AppBar(
     backgroundColor: Colors.grey[100],
-
     centerTitle: false,
     title: Row(
       children: [
