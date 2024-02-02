@@ -9,9 +9,9 @@ class CategoryWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             Text(
               'Category',
               style:
@@ -111,8 +111,8 @@ class CategoryWidget extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(7)),
-                                child: Row(
-                                  children: const [
+                                child: const Row(
+                                  children: [
                                     Icon(
                                       Icons.star,
                                       color: Colors.yellow,
@@ -135,16 +135,16 @@ class CategoryWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Caribean Hotel',
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w600),
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Text(
                                   '\$80',
                                   style: TextStyle(color: Colors.blue),

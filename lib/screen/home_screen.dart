@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/screen/widget/bottom_navigation_bar/floating_navbar.dart';
-import 'package:travel_app/screen/widget/bottom_navigation_bar/floating_navbar_item.dart';
 import 'package:travel_app/screen/widget/category_screen.dart';
 import 'package:travel_app/screen/widget/travel_group.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _index = 0;
 
   @override
   void initState() {
@@ -25,16 +22,16 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey[100],
         appBar: _appBar,
         body: _buildBody,
-        bottomNavigationBar: _bottomNavigationBar);
+       );
   }
 
   Widget get _buildBody {
     return Container(
       color: Colors.grey[100],
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
-          children: const [
+          children: [
             CategoryWidget(),
              SizedBox(
               height: 15,
@@ -46,20 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget get _bottomNavigationBar => FloatingNavbar(
-        backgroundColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.blue,
-        selectedBackgroundColor: Colors.transparent,
-        onTap: (int val) => setState(() => _index = val),
-        currentIndex: _index,
-        items: [
-          FloatingNavbarItem(icon: Icons.home, title: 'Home'),
-          FloatingNavbarItem(icon: Icons.explore, title: 'Explore'),
-          FloatingNavbarItem(icon: Icons.save_outlined, title: 'Saved'),
-          FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
-        ],
-      );
 
   final AppBar _appBar = AppBar(
     backgroundColor: Colors.grey[100],
@@ -77,9 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(
           width: 10,
         ),
-        Column(
+        const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               'Welcome Back!',
               style: TextStyle(
